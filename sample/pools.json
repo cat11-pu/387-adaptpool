@@ -1,0 +1,21 @@
+{
+  "budget": 2,
+  "minCap": 1,
+  "maxCap": 4,
+  "bad_name_code": "E_BAD_NAME",
+  "dup_code": "E_DUP_NAME",
+  "norun_code": "E_NO_RUNNING",
+  "event_error_code": "E_BAD_EVENT",
+  "state": { "cap": 2, "running": [], "queue": [], "done": [], "scales": [], "top": 0,
+             "blocked": 0, "cooldown": 0, "ledger": [], "applied": [] },
+  "events": [
+    { "id": 1, "kind": "add", "name": "A" },
+    { "id": 2, "kind": "add", "name": "B" },
+    { "id": 3, "kind": "add", "name": "C" },
+    { "id": 4, "kind": "tick" },
+    { "id": 5, "kind": "finish", "name": "A" },
+    { "id": 6, "kind": "tick" },
+    { "id": 7, "kind": "finish", "name": "B" },
+    { "id": 8, "kind": "tick" }
+  ]
+}
