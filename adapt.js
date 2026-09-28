@@ -1,12 +1,17 @@
-// adapt.js：伸缩判定与补齐（基线：一律说不该动、不补位）
+// adapt.js：伸缩判定与补齐
 export function wantGrow(cap, running, queued, maxCap, cooldown) {
-  return false;
+  return cooldown === 0 && queued > 0 && running >= cap && cap < maxCap;
 }
 
 export function wantShrink(cap, running, queued, minCap, cooldown) {
-  return false;
+  return cooldown === 0 && queued === 0 && running < cap && cap > minCap;
 }
 
 export function fill(running, queue, cap) {
-  return { running: running.slice(), queue: queue.slice() };
+  const nextRunning = running.slice();
+  const nextQueue = queue.slice();
+  while (nextRunning.length < cap && nextQueue.length > 0) {
+    nextRunning.push(nextQueue.shift());
+  }
+  return { running: nextRunning, queue: nextQueue };
 }
